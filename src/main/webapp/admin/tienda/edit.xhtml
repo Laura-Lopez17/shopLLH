@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      >
+    <h:head>
+        <title>Editar</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="../../templates/admin.xhtml">
+            <ui:param name="parametro" value="Propiedades>>Editar"/>
+            <ui:define name="contenido">
+
+
+                <p:outputPanel id="manage-product-content" class="ui-fluid">
+                    <h:form>
+                        <h:panelGrid columns="2">
+                            <h:outputLabel value="Id" for="id" />
+                            <p:inputText id="id" disabled="true" value="#{tiendaEditView.tienda.id}"/>
+                            <h:outputLabel value="Nombre" for="nombre" />
+                            <p:inputText id="nombre" value="#{tiendaEditView.tienda.nombre}" title="nombre" required="true" requiredMessage="requerido"/>
+
+                            <h:outputLabel value="Dirección" for="direccion" />
+                            <p:inputText id="direccion" value="#{tiendaEditView.tienda.direccion}" title="direccion" required="true" requiredMessage="requerido"/>
+                            <h:outputLabel value="descripcion" for="descripcion" />
+                            <p:inputText id="descripcion" value="#{tiendaEditView.tienda.descripcion}" title="descripcion" required="true" requiredMessage="requerido"/>
+                            <h:outputLabel value="coordenadas" for="coordenadas" />
+                            <p:inputText id="coordenadas" value="#{tiendaEditView.tienda.coordenadas}" title="coordenadas" required="true" requiredMessage="requerido"/>
+
+                            <h:outputLabel value="Activo" for="activo" />
+                            <p:selectBooleanCheckbox  id="activo" value="#{tiendaEditView.tienda.activo}"/>   
+                            <p:outputLabel for="categoria" value="Tipo"/>
+                            <p:selectOneMenu id="categoria" value="#{tiendaEditView.categoria}" >
+                                <f:selectItem itemLabel="Select One" itemValue=""/>
+                                <f:selectItems value="#{tiendaEditView.categorias}" var="categoria"
+                                               itemValue="#{categoria.nombre}"
+                                               itemLabel="#{categoria.nombre}"
+                                              />
+                            </p:selectOneMenu>
+
+                            <p:commandButton action="#{tiendaEditView.cancel}" value="Cancelar" icon="pi pi-times"  styleClass="ui-button-warning" process="@this"/>
+
+                            <p:commandButton action="#{tiendaEditView.add}" value="Guardar"/>
+
+                        </h:panelGrid>
+                    </h:form>
+                </p:outputPanel> 
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
