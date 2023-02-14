@@ -11,7 +11,7 @@
     </h:head>
     <h:body>
         <ui:composition template="../../templates/admin.xhtml">
-            <ui:param name="parametro" value="Propiedades>>Editar"/>
+            <ui:param name="parametro" value="Tienda>>Editar"/>
             <ui:define name="contenido">
 
 
@@ -38,7 +38,15 @@
                                 <f:selectItems value="#{tiendaEditView.categorias}" var="categoria"
                                                itemValue="#{categoria.nombre}"
                                                itemLabel="#{categoria.nombre}"
-                                              />
+                                               />
+                            </p:selectOneMenu>
+                            <p:outputLabel for="promocion " value="Tipo"/>
+                            <p:selectOneMenu id="promocion" value="#{tiendaEditView.promocion}" >
+                                <f:selectItem itemLabel="Select One" itemValue=""/>
+                                <f:selectItems value="#{tiendaEditView.promociones}" var="promocion"
+                                               itemValue="#{promocion.nombre}"
+                                               itemLabel="#{promocion.nombre}"
+                                               />
                             </p:selectOneMenu>
 
                             <p:commandButton action="#{tiendaEditView.cancel}" value="Cancelar" icon="pi pi-times"  styleClass="ui-button-warning" process="@this"/>

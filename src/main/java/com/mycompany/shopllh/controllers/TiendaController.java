@@ -19,14 +19,15 @@ import java.util.Optional;
  *
  * @author laura
  */
-@Named
+@Named//estas anotaciones significan que estan disponibles en toda la aplicación y que se puede acceder a ellas por su nombre
 @ApplicationScoped
 public class TiendaController extends AbstractController<Tienda> {
 
-     @Inject
+    @Inject
     private CategoriaController categoriaController;
-   
-
+    @Inject
+    private PromocionController promocionController;
+    
     public TiendaController() {
         super(Tienda::new);
     }
@@ -37,7 +38,7 @@ public class TiendaController extends AbstractController<Tienda> {
     }
 
     @PostConstruct
-    public void load() {
+    public void load() { //este metodo crea tiendas y las agrega a un repositorio
         this.create();
         this.getSelected().setNombre("Asador Alberto");
         this.getSelected().setDireccion("C/Arbol,78");
@@ -45,27 +46,38 @@ public class TiendaController extends AbstractController<Tienda> {
         this.getSelected().setCoordenadas("-52.4675, 48.6691");
         this.getSelected().setActivo(true);
         this.getSelected().setCategoria(this.categoriaController.getItems().get(0));
+        this.getSelected().setPromocion(this.promocionController.getItems().get(0));
         this.getSelected().setId(-1);
         this.add();
     }
 
-    public String remove() {
+    public String remove() {//elimina una promocion del repositorio
         if (this.getSelected() != null) {
+            /*if (this.tiendacontroller.getItems().stream().filter(item -> {
+                return item.getCategoria()== this.getSelected();
+            }).count() == 0) {*/
             this.repositorio.remove(this.getSelected());
+            return "remove";
+            /* } else {
+                return "";
+            }*/
+
         }
-        return "remove";
+        //se tiene que poner el error
+        return "";
+
     }
 
     @Override
-    public String preEdit() {
+    public String preEdit() {//para entrar a la pagina de editar
         return "edit";
     }
 
-    public void selectedChange(ValueChangeEvent event) {
+    public void selectedChange(ValueChangeEvent event) { //se activa cuando se produce un cambio en la selección de tiendas
         this.setSelected((Tienda) event.getNewValue());
     }
 
-    public Tienda getTiendaById(int id) {
+    public Tienda getTiendaById(int id) {//evuelve una tienda dada su id.
         Tienda t = null;
         Optional<Tienda> element = this.getItems().stream().filter(item -> {
             return item.getId() == id;
@@ -77,10 +89,10 @@ public class TiendaController extends AbstractController<Tienda> {
     }
 
     @Override
-    public String add() {
+    public String add() { //para añadir promociones o actualizarlas
         //si es nuevo
         if (this.getSelected() != null) {
-            if (this.getSelected().getId() == -1) {
+            if (this.getSelected().getId() <= 0) {
                 this.getSelected().setId(this.repositorio.getAll().size() + 1);
                 this.repositorio.create(this.getSelected());
             } else {

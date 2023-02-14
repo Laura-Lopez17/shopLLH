@@ -11,7 +11,7 @@
     </h:head>
     <h:body>
         <ui:composition template="../../templates/admin.xhtml">
-            <ui:param name="parametro" value="Propiedades>>Listado"/>
+            <ui:param name="parametro" value="Tienda>>Listado"/>
             <ui:define name="contenido">
                 <p:dataTable id="tienda" var="tienda" value="#{tiendaController.items}" rowKey="#{tienda.id}"
                              selection="#{tiendaController.selected}" selectionMode="single"
@@ -32,8 +32,13 @@
                         <h:outputText value="#{tienda.coordenadas}" />
                     </p:column>
                     <p:column headerText="categoria">
-                        <h:outputText value="#{tiendaEditView.categoria}" />
+                        <h:outputText value="#{tienda.categoria.nombre}" />
                     </p:column>
+                    <p:column headerText="Promocion">
+                        <h:outputText value="#{tienda.promocion.nombre}" />
+                    </p:column>
+
+
                     <p:column headerText="Activo">
                         <p:selectBooleanCheckbox  id="activo" value="#{tienda.activo}" itemLabel="Activo" disabled="true"/>  
                     </p:column>
@@ -53,7 +58,7 @@
 
                             <p:commandButton action = "#{tiendaController.remove}" value = "Borrar" icon="pi pi-trash" styleClass="ui-button-danger" >
                                 <f:setPropertyActionListener value="#{tienda}"
-                                                             target="#{tiendaController.tienda}"/>
+                                                             target="#{tiendaController.selected}"/>
                             </p:commandButton>
 
                         </h:form>

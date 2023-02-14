@@ -3,6 +3,7 @@ com\mycompany\shopllh\controllers\AbstractController.class
 com\mycompany\shopllh\views\TiendaEditView.class
 com\mycompany\inmodaw\model\ICopyable.class
 com\mycompany\shopllh\model\Categoria.class
+com\mycompany\shopllh\model\Promocion.class
 com\mycompany\shopllh\controller\repository\IRepository.class
 com\mycompany\shopllh\controllers\IController.class
 com\mycompany\shopllh\JakartaRestConfiguration.class

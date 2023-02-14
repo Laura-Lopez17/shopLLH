@@ -11,7 +11,7 @@
     </h:head>
     <h:body>
         <ui:composition template="../../templates/admin.xhtml">
-            <ui:param name="parametro" value="Propiedades>>Alta"/>
+            <ui:param name="parametro" value="Tienda>>Alta"/>
             <ui:define name="contenido">
 
 
@@ -28,7 +28,23 @@
                             <p:inputText id="descripcion" value="#{tiendaEditView.tienda.descripcion}" title="descripcion" required="true" requiredMessage="requerido"/>
                             <h:outputLabel value="coordenadas" for="coordenadas" />
                             <p:inputText id="coordenadas" value="#{tiendaEditView.tienda.coordenadas}" title="coordenadas" required="true" requiredMessage="requerido"/> 
-
+                            <p:outputLabel for="categoria" value="Categoria"/>
+                            <p:selectOneMenu id="categoria" value="#{tiendaEditView.categoria}" >
+                                <f:selectItem itemLabel="Select One" itemValue=""/>
+                                <f:selectItems value="#{tiendaEditView.categorias}" var="categoria"
+                                               itemValue="#{categoria.nombre}"
+                                               itemLabel="#{categoria.nombre}"
+                                               />
+                            </p:selectOneMenu>
+ 
+                            <p:outputLabel for="promocion " value="Promocion"/>
+                            <p:selectOneMenu id="promocion" value="#{tiendaEditView.promocion}" >
+                                <f:selectItem itemLabel="Select One" itemValue=""/>
+                                <f:selectItems value="#{tiendaEditView.promociones}" var="promocion"
+                                               itemValue="#{promocion.nombre}"
+                                               itemLabel="#{promocion.nombre}"
+                                               />
+                            </p:selectOneMenu>
                             <p:commandButton action="#{tiendaEditView.cancel}" value="Cancelar" icon="pi pi-times"  styleClass="ui-button-warning"/>
 
                             <p:commandButton action="#{tiendaEditView.add}" value="Alta"/>

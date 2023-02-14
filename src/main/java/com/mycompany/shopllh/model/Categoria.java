@@ -9,6 +9,8 @@ package com.mycompany.shopllh.model;
  * @author laura
  */
 public class Categoria {
+ //es una clase JavaBean, esta formada por sus atributos,getters y setters
+
     String nombre;
     int id;
     boolean activo;

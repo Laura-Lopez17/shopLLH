@@ -10,7 +10,8 @@ package com.mycompany.shopllh.model;
  */
 import java.util.List;
 
-public class Tienda implements Cloneable {
+public class Tienda implements Cloneable {//comparable le permite ser comparada con otras instancias de promocion y cloneable crear una copia de la instancia de esta clase.
+//es una clase JavaBean, esta formada por sus atributos,constructores,getters y setters
 
     int id;
     String nombre;
@@ -19,6 +20,7 @@ public class Tienda implements Cloneable {
     String coordenadas;
     boolean activo;
     private Categoria categoria;
+    private Promocion promocion;
 
     public Tienda(int id, String nombre, String direccion, String descripcion, String coordenadas, boolean activo, Categoria categoria) {
         this.id = id;
@@ -28,7 +30,15 @@ public class Tienda implements Cloneable {
         this.coordenadas = coordenadas;
         this.activo = activo;
     }
-    
+
+    public Promocion getPromocion() {
+        return promocion;
+    }
+
+    public void setPromocion(Promocion promocion) {
+        this.promocion = promocion;
+    }
+
     public Tienda() {
 
     }
@@ -98,7 +108,7 @@ public class Tienda implements Cloneable {
         t.setNombre(nombre);
         t.setCategoria(categoria);
         t.setDescripcion(descripcion);
-        t.setCoordenadas (coordenadas);
+        t.setCoordenadas(coordenadas);
 
         return t;
     }

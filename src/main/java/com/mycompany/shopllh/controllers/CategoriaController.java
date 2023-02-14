@@ -15,7 +15,7 @@ import java.util.ArrayList;
  *
  * @author laura
  */
-@Named
+@Named//estas anotaciones significan que estan disponibles en toda la aplicación y que se puede acceder a ellas por su nombre
 @ApplicationScoped
 public class CategoriaController extends AbstractController<Categoria> {
     //@Inject
@@ -27,7 +27,7 @@ public class CategoriaController extends AbstractController<Categoria> {
 
     @Override
     @PostConstruct
-    public void load() {
+    public void load() { //este metodo crea categorias y las agrega a un repositorio
         this.create();
         this.getSelected().setActivo(true);
         //this.getSelected().setId(-1);
@@ -48,7 +48,7 @@ public class CategoriaController extends AbstractController<Categoria> {
     }
 
     
-public String remove() {
+public String remove() { //elimina una categoria del repositorio
         if (this.getSelected() != null) {
             /*if (this.tiendacontroller.getItems().stream().filter(item -> {
                 return item.getCategoria()== this.getSelected();
@@ -66,13 +66,13 @@ public String remove() {
     }
 
     @Override
-    public String preEdit() {
+    public String preEdit() { //para entrar a la pagina de editar
 
         return "edit";
     }
 
     @Override
-    public String add() {
+    public String add() { //para añadir categorias o actualizarlas
         //si es nuevo
         if (this.getSelected().getId() == -1) {
             this.getSelected().setId(this.repositorio.getAll().size() + 1);
@@ -85,7 +85,7 @@ public String remove() {
         return "sucess";
     }
 
-    public IRepository<Categoria> getRepositorio() {
+    public IRepository<Categoria> getRepositorio() { //get y set para almacenar las categorias
         return repositorio;
     }
 

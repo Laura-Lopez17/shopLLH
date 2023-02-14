@@ -52,9 +52,13 @@
                 <h3>#{parametro}</h3>
                 <h:form>
                     <p:menubar>
-                        <p:menuitem value="Categorías" action="categorias"/>
-                        <p:menuitem value="Tienda" action="tienda"/>
-                        <p:menuitem value="Promoción" action="promocion"/>
+                        <p:menuitem value="Parte Pública" action="categorias_public"/>
+                        <p:menuitem value="Parte Privada" action="tiendas"/>
+                    </p:menubar>
+                    <p:menubar>
+                        <p:menuitem value="CategoríasAdmin" action="categorias"/>
+                        <p:menuitem value="TiendaAdmin" action="tienda"/>
+                        <p:menuitem value="PromociónAdmin" action="promocion"/>
 
 
                         <f:facet name="options">

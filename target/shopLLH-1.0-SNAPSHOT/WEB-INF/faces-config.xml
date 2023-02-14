@@ -24,9 +24,9 @@
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-facesconfig_3_0.xsd">
 
-     <!--general-->
+    <!--general-->
     <navigation-rule>
-        <from-view-id>/admin/*</from-view-id>
+        <from-view-id>/*</from-view-id>
         <navigation-case>
             <from-outcome>categorias</from-outcome>
             <to-view-id>/admin/categorias/index.xhtml</to-view-id>
@@ -36,23 +36,35 @@
             <to-view-id>/admin/tienda/index.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
+            <from-outcome>categorias</from-outcome>
+            <to-view-id>/admin/categorias/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
             <from-outcome>promocion</from-outcome>
             <to-view-id>/admin/promocion/index.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-outcome>propiedades</from-outcome>
-            <to-view-id>/admin/propiedades/index.xhtml</to-view-id>
+            <from-outcome>categorias_public</from-outcome>
+            <to-view-id>/public/categorias/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>promocion_public</from-outcome>
+            <to-view-id>/public/promocion/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>tienda_public</from-outcome>
+            <to-view-id>/public/tienda/index.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     
-    <!--categorias -->
-     <navigation-rule>
+    <!-- categorias -->
+    <navigation-rule>
         <from-view-id>/admin/categorias/index.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>edit</from-outcome>
             <to-view-id>/admin/categorias/edit.xhtml</to-view-id>
         </navigation-case>
-       <navigation-case>
+        <navigation-case>
             <from-outcome>remove</from-outcome>
             <to-view-id>/admin/categorias/index.xhtml</to-view-id>
         </navigation-case>
@@ -75,7 +87,7 @@
        
     </navigation-rule>
     
-        <navigation-rule>
+    <navigation-rule>
         <from-view-id>/admin/categorias/create.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>sucess</from-outcome>
@@ -89,50 +101,11 @@
     </navigation-rule>
     
     
-    
-    
-    
-    <!--tienda-->
-     <navigation-rule>
-        <from-view-id>/admin/tienda/index.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>edit</from-outcome>
-            <to-view-id>/admin/tienda/edit.xhtml</to-view-id>
-        </navigation-case>
-       <navigation-case>
-            <from-outcome>remove</from-outcome>
-            <to-view-id>/admin/tienda/index.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>create</from-outcome>
-            <to-view-id>/admin/tienda/create.xhtml</to-view-id>
-        </navigation-case>
-    </navigation-rule>
-    
-    <navigation-rule>
-        <from-view-id>/admin/tienda/edit.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>sucess</from-outcome>
-            <to-view-id>/admin/tienda/index.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>failure</from-outcome>
-            <to-view-id>/admin/tienda/edit.xhtml</to-view-id>
-        </navigation-case>
-       
-    </navigation-rule>
-    
-        <navigation-rule>
-        <from-view-id>/admin/tienda/create.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>sucess</from-outcome>
-            <to-view-id>/admin/tienda/index.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>failure</from-outcome>
-            <to-view-id>/admin/tienda/create.xhtml</to-view-id>
-        </navigation-case>
-    </navigation-rule>
+   
+   
+   
+  
+   
    
     <!--promocion-->
     <navigation-rule>
@@ -141,8 +114,6 @@
             <from-outcome>edit</from-outcome>
             <to-view-id>/admin/promocion/edit.xhtml</to-view-id>
         </navigation-case>
-        
-         
         <navigation-case>
             <from-outcome>remove</from-outcome>
             <to-view-id>/admin/promocion/index.xhtml</to-view-id>
@@ -159,18 +130,6 @@
             <from-outcome>sucess</from-outcome>
             <to-view-id>/admin/promocion/index.xhtml</to-view-id>
         </navigation-case>
-          <navigation-case>
-            <from-outcome>remove</from-outcome>
-            <to-view-id>/admin/promocion/edit.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>edit</from-outcome>
-            <to-view-id>/admin/localidades/edit.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>create</from-outcome>
-            <to-view-id>/admin/localidades/create.xhtml</to-view-id>
-        </navigation-case>
         <navigation-case>
             <from-outcome>failure</from-outcome>
             <to-view-id>/admin/promocion/edit.xhtml</to-view-id>
@@ -178,7 +137,7 @@
        
     </navigation-rule>
     
-        <navigation-rule>
+    <navigation-rule>
         <from-view-id>/admin/promocion/create.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>sucess</from-outcome>
@@ -186,7 +145,7 @@
         </navigation-case>
         <navigation-case>
             <from-outcome>failure</from-outcome>
-            <to-view-id>/admin/promocion/create.xhtml</to-view-id>
+            <to-view-id>/admin/promocion/edit.xhtml</to-view-id>
         </navigation-case>
        
     </navigation-rule>
@@ -195,89 +154,40 @@
    
    
    
-     <!--localidades-->
-     <navigation-rule>
-        <from-view-id>/admin/localidades/index.xhtml</from-view-id>
+   
+   
+   
+   
+    <!--tienda-->
+    <navigation-rule>
+        <from-view-id>/admin/tienda/index.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>edit</from-outcome>
-            <to-view-id>/admin/localidades/edit.xhtml</to-view-id>
+            <to-view-id>/admin/tienda/edit.xhtml</to-view-id>
         </navigation-case>
-       <navigation-case>
+        <navigation-case>
             <from-outcome>remove</from-outcome>
-            <to-view-id>/admin/localidades/index.xhtml</to-view-id>
+            <to-view-id>/admin/tienda/index.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>create</from-outcome>
-            <to-view-id>/admin/localidades/create.xhtml</to-view-id>
+            <to-view-id>/admin/tienda/create.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     
     <navigation-rule>
-        <from-view-id>/admin/localidades/edit.xhtml</from-view-id>
+        <from-view-id>/admin/tienda/edit.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>sucess</from-outcome>
-            <to-view-id>/admin/promocion/edit.xhtml</to-view-id>
+            <to-view-id>/admin/tienda/index.xhtml</to-view-id>
         </navigation-case>
-        <navigation-case>
-            <from-outcome>failure</from-outcome>
-            <to-view-id>/admin/localidades/edit.xhtml</to-view-id>
-        </navigation-case>
-       
-    </navigation-rule>
-    
-        <navigation-rule>
-        <from-view-id>/admin/localidades/create.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>sucess</from-outcome>
-            <to-view-id>/admin/promocion/edit.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>failure</from-outcome>
-            <to-view-id>/admin/localidades/edit.xhtml</to-view-id>
-        </navigation-case>
-       
-    </navigation-rule>
-   
-   
-   
-   
-   
-   
-   
-   
-   
-       <!--propiedades-->
-    <navigation-rule>
-        <from-view-id>/admin/propiedades/index.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>edit</from-outcome>
-            <to-view-id>/admin/propiedades/edit.xhtml</to-view-id>
-        </navigation-case>
-        
-         
         <navigation-case>
             <from-outcome>remove</from-outcome>
-            <to-view-id>/admin/propiedades/index.xhtml</to-view-id>
+            <to-view-id>/admin/tienda/edit.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-outcome>create</from-outcome>
-            <to-view-id>/admin/propiedades/create.xhtml</to-view-id>
-        </navigation-case>
-    </navigation-rule>
-    
-    <navigation-rule>
-        <from-view-id>/admin/propiedades/edit.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>sucess</from-outcome>
-            <to-view-id>/admin/propiedades/index.xhtml</to-view-id>
-        </navigation-case>
-          <navigation-case>
-            <from-outcome>remove</from-outcome>
-            <to-view-id>/admin/propiedades/edit.xhtml</to-view-id>
-        </navigation-case>
-          <navigation-case>
             <from-outcome>reload</from-outcome>
-            <to-view-id>/admin/propiedades/edit.xhtml</to-view-id>
+            <to-view-id>/admin/tienda/edit.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>edit</from-outcome>
@@ -291,35 +201,19 @@
             <from-outcome>failure</from-outcome>
             <to-view-id>/admin/propiedades/edit.xhtml</to-view-id>
         </navigation-case>
-       <navigation-case>
-            <from-outcome>imageadd</from-outcome>
-            <to-view-id>/admin/imagenes/edit.xhtml</to-view-id>
-        </navigation-case>
     </navigation-rule>
     
     <navigation-rule>
-        <from-view-id>/admin/propiedades/create.xhtml</from-view-id>
+        <from-view-id>/admin/tienda/create.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>sucess</from-outcome>
-            <to-view-id>/admin/propiedades/index.xhtml</to-view-id>
+            <to-view-id>/admin/tienda/index.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>failure</from-outcome>
-            <to-view-id>/admin/propiedades/create.xhtml</to-view-id>
+            <to-view-id>/admin/tienda/create.xhtml</to-view-id>
         </navigation-case>
        
     </navigation-rule>
    
-   <navigation-rule>
-        <from-view-id>/admin/imagenes/edit.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>sucess</from-outcome>
-            <to-view-id>/admin/propiedades/edit.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>failure</from-outcome>
-            <to-view-id>/admin/imagenes/edit.xhtml</to-view-id>
-        </navigation-case>
-       
-    </navigation-rule>
 </faces-config>
